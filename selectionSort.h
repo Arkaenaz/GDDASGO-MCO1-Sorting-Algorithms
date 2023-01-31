@@ -1,8 +1,8 @@
 /****************************************************
 REFERENCE
 
-Author:
-Link:
+Author: 
+Link: https://www.programiz.com/dsa/selection-sort
 ****************************************************/
 
 /*

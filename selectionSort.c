@@ -23,10 +23,9 @@ void swap(int *nValue1, int *nValue2)
 */
 void selectionSort(int A[], int n, double *dCounter)
 {
-    int nMinimum;
     for (int i = 0; i < n; i++)
     {
-        nMinimum = i;
+        int nMinimum = i;
 
         for (int j = i + 1; j < n; j++)
         {

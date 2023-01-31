@@ -39,10 +39,17 @@ void resetArray(int original[], int A[], int n) {
     }
 }
 
+void resetCounter(double dCounter[], int n) {
+	int i;
+	for (i=0;i<n;i++) {
+		dCounter[i] = 0;
+	}
+} 
+
 int main() {
 	
 	//	your code here
-	int N = 2048;			// Change this to change the number of values in the array
+	int N = 65536;			// Change this to change the number of values in the array
 	int nMaxRun = 10;		// Change this to change the number of runs
 
 	int M;
@@ -62,6 +69,7 @@ int main() {
 	//printArray(A, N);
 	printf("-- N: %d --\n\n", N);
 	for (nSort = 0; nSort < 6; nSort++) {
+		resetCounter(dCounter, nMaxRun);
 		switch(nSort) {
 			case 0:
 				printf("Bubble Sort:\n");
@@ -95,6 +103,12 @@ int main() {
 			}
 			timeEnd = getTime();
 			dElapsed[M] = getElapsed(timeStart, timeEnd);
+
+
+			/* Remove Comment to see Elapsed Time and Counter per Run
+			printf("Time Elapsed: %lf\n", dElapsed[M]);
+			printf("Counter: %.lf\n\n", dCounter[M]);
+			*/
 		}
 		dMET = computeAverage(dElapsed, nMaxRun);
 		printf("Average MET: %lf milliseconds\n", dMET);

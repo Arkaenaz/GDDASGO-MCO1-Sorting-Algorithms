@@ -1,4 +1,4 @@
-#include "stdio.h"
+#include "selectionSort.h"
 
 /*
 	Swaps two(2) array indexes with one another

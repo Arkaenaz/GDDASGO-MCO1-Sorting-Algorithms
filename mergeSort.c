@@ -63,17 +63,17 @@ void mergeSort(int A[], int n, double *dCounter) {
     int l = 0;
 
     //dCounter to be used as right index variable in if statement
-    dCounter = n;
+    *dCounter = n;
 
 	if(l < *dCounter){
         //middle index
 		int x = l + (n - l) / 2;
 
         //sort first half
-        dCounter = x;
+        *dCounter = x;
 		mergeSort(A, l, dCounter);
         //sort second half
-        dCounter = n;
+        *dCounter = n;
 		mergeSort(A, x+1, dCounter);
 
 		merge(A, l, x, n);

@@ -1,7 +1,7 @@
 /****************************************************
 REFERENCE
 
-Author:
+Author: Joachim Gabriel R. Arguelles
 Link: https://www.geeksforgeeks.org/merge-sort/
 ****************************************************/
 
@@ -54,6 +54,7 @@ void mergeSort(int A[], int n, double *dCounter){
 	i = 0;
 	j = 0;
 	k = 0;
+	//both arrays still have
 	while(i < n1 && j < n2){
 		if(L[i] <= R[j]){
 			A[k] = L[i];
@@ -67,6 +68,7 @@ void mergeSort(int A[], int n, double *dCounter){
 		k++;
 	}
 
+	//only left array is remaining
 	while(i < n1){
 		A[k] = L[i];
 		*dCounter += 1.0;
@@ -74,6 +76,7 @@ void mergeSort(int A[], int n, double *dCounter){
 		k++;
 	}
 
+	//only right array is remaining
 	while(j < n2){
 		A[k] = R[j];
 		*dCounter += 1.0;

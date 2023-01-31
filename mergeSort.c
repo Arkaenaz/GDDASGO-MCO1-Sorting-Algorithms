@@ -63,7 +63,8 @@ void mergeSort(int A[], int n, double *dCounter) {
     int l = 0;
 
     //dCounter to be used as right index variable in if statement
-    *dCounter = n;
+    if(*dCounter < 0)
+        *dCounter = n;
 
 	if(l < *dCounter){
         //middle index

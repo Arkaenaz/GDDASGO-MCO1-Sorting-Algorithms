@@ -32,35 +32,76 @@ double computeAverage(double dArray[], int nSize) {
     return dSum / nSize;
 }
 
+void resetArray(int original[], int A[], int n) {
+	int i;
+	for (i=0;i<n;i++) {
+        A[i] = original[i];
+    }
+}
+
 int main() {
 	
 	//	your code here
-	int N = 65536;			// Change this to change the number of values in the array
+	int N = 2048;			// Change this to change the number of values in the array
 	int nMaxRun = 10;		// Change this to change the number of runs
 
 	int M;
 	struct timespec timeStart;
 	struct timespec timeEnd;
 	double dElapsed[nMaxRun];
-	double dCounter;
+	double dCounter[nMaxRun];
+	double dAverageCounter;
 
+	int nSort;
+
+	int aOriginal[N];
 	int A[N];
 	double dMET;
 
-	generateData(A, N);
+	generateData(aOriginal, N);
 	//printArray(A, N);
 	printf("-- N: %d --\n\n", N);
-	printf("Insertion Sort:\n");
-	for (M=0; M < nMaxRun; M++) {
-		timeStart = getTime();
-		insertionSort(A,N,&dCounter);
-		//printArray(A, N);
-		timeEnd = getTime();
-		dElapsed[M] = getElapsed(timeStart, timeEnd);
+	for (nSort = 0; nSort < 6; nSort++) {
+		switch(nSort) {
+			case 0:
+				printf("Bubble Sort:\n");
+				break;
+			case 1:
+			    printf("Insertion Sort:\n");
+                break;
+			case 2:
+			    printf("Selection Sort:\n");
+                break;
+            case 3:
+			    printf("Merge Sort:\n");
+                break;
+            case 4:
+			    printf("Sort 5:\n");
+                break;
+            case 5:
+			    printf("Sort 6:\n");
+                break;
+		}
+		for (M=0; M < nMaxRun; M++) {
+			resetArray(aOriginal, A, N);
+			timeStart = getTime();
+			switch(nSort) {
+				case 0: bubbleSort(A, N, &dCounter[M]); break;
+                case 1: insertionSort(A, N, &dCounter[M]); break;
+                case 2: selectionSort(A, N, &dCounter[M]); break;
+				case 3: mergeSort(A, N, &dCounter[M]); break;
+				case 4: sort5(A, N, &dCounter[M]); break;
+				case 5: sort6(A, N, &dCounter[M]); break;
+			}
+			timeEnd = getTime();
+			dElapsed[M] = getElapsed(timeStart, timeEnd);
+		}
+		dMET = computeAverage(dElapsed, nMaxRun);
+		printf("Average MET: %lf milliseconds\n", dMET);
+		dAverageCounter = computeAverage(dCounter, nMaxRun);
+		printf("Average counter value: %.lf\n", dAverageCounter);
+		printf("\n");
 	}
-	dMET = computeAverage(dElapsed, nMaxRun);
-	printf("Average MET: %lf milliseconds\n", dMET);
-	printf("Average counter value: %lf", dCounter);
 
 	return 0;
 }

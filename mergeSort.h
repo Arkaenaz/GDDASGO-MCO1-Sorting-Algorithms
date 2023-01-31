@@ -6,17 +6,6 @@ Link: https://www.geeksforgeeks.org/merge-sort/
 ****************************************************/
 
 
-/* 
-	Sorts and merges the array A.
-
-	@param int A[] 			array to be sorted
-	@param int l			left index
-	@param int x			middle index
-	@param int n			array size/right index
-*/
-void merge(int A[], int l, int x, int n);
-
-
 /****************************************************
 YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 ****************************************************/

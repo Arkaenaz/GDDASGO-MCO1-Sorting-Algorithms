@@ -111,6 +111,7 @@ int main() {
 			*/
 		}
 		dMET = computeAverage(dElapsed, nMaxRun);
+		dMET = dMET * 1000;								// Converts it to milliseconds
 		printf("Average MET: %lf milliseconds\n", dMET);
 		dAverageCounter = computeAverage(dCounter, nMaxRun);
 		printf("Average counter value: %.lf\n", dAverageCounter);

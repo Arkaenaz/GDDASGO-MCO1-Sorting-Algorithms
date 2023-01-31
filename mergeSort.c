@@ -16,14 +16,17 @@ void merge(int A[], int l, int x, int n){
 
 	int L[n1], R[n2];
 
+    //left array
 	for(i = 0; i < n1; i++)
 		L[i] = A[l + i];
+    //right array
 	for(j=0; j < n2; j++)
 		R[j] = A[x + 1 + j];
 
 	i = 0;
 	j = 0;
-	while(i < n1 && j <n2){
+	k = l;
+	while(i < n1 && j < n2){
 		if(L[i] <= R[j]){
 			A[k] = L[i];
 			i++;
@@ -59,23 +62,18 @@ void merge(int A[], int l, int x, int n){
 void mergeSort(int A[], int n, double *dCounter) {
 	//	your code here
 
-    //left index, n will serve as right index
-    int l = 0;
+    //left index
+	int l = *dCounter;
 
-    //dCounter to be used as right index variable in if statement
-    if(*dCounter < 0)
-        *dCounter = n;
-
-	if(l < *dCounter){
+	if((int)*dCounter < n){
         //middle index
 		int x = l + (n - l) / 2;
 
         //sort first half
-        *dCounter = x;
-		mergeSort(A, l, dCounter);
+		mergeSort(A, x, dCounter);
         //sort second half
-        *dCounter = n;
-		mergeSort(A, x+1, dCounter);
+        *dCounter = x+1;
+		mergeSort(A, n, dCounter);
 
 		merge(A, l, x, n);
 	}

@@ -2,7 +2,7 @@
 REFERENCE
 
 Author:
-Link:
+Link: https://www.programiz.com/dsa/insertion-sort
 ****************************************************/
 
 
@@ -24,5 +24,14 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 	@param double *dCounter	counter variable for critical parts of the code
 */
 void insertionSort(int A[], int n, double *dCounter) {
-	//	your code here
+	int i,j,nKey;
+	for (i = 1; i < n; i++) {
+		nKey = A[i];
+		j = i - 1;
+		while (nKey < A[j] && j>=0) {
+		    A[j+1] = A[j];
+			--j;
+		}
+	    A[j+1] = nKey;
+    }
 }

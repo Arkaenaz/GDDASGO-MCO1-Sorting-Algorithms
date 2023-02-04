@@ -26,6 +26,7 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 void insertionSort(int A[], int n, double *dCounter) {
 	int i,j,nKey;
 	for (i = 1; i < n; i++) {
+		*dCounter += 1;
 		nKey = A[i];
 		j = i - 1;
 		while (nKey < A[j] && j>=0) {

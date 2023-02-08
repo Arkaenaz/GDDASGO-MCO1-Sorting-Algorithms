@@ -1,7 +1,7 @@
 /****************************************************
 REFERENCE
 
-Author: Joachim Gabriel R. Arguelles
+Author:
 Link: https://www.geeksforgeeks.org/merge-sort/
 ****************************************************/
 

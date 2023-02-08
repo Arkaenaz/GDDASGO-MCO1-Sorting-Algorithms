@@ -1,7 +1,7 @@
 /****************************************************
 REFERENCE
 
-Author: Joachim Gabriel R. Arguelles
+Author:
 Link: https://www.geeksforgeeks.org/quick-sort/
 ****************************************************/
 
@@ -13,7 +13,7 @@ Link: https://www.geeksforgeeks.org/quick-sort/
 	@param int* b			second element to swap
 	@param double *dCounter	counter variable for critical parts of the code
 */
-void swapquick(int* a, int* b, double* dCounter){
+void swapQuick(int* a, int* b, double* dCounter){
 	int t = *a;
     *a = *b;
     *b = t;
@@ -38,10 +38,10 @@ int partition(int A[], int l, int n, double* dCounter)
         // If current element is smaller than the pivot
         if (A[j] < pivot) {
             i++; // increment index of smaller element
-            swapquick(&A[i], &A[j], dCounter);
+            swapQuick(&A[i], &A[j], dCounter);
         }
     }
-    swapquick(&A[i + 1], &A[n], dCounter);
+    swapQuick(&A[i + 1], &A[n], dCounter);
     return (i + 1);
 }
 
@@ -70,7 +70,7 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 
 
 /*
-	Sorts the array A using <fill this> sorting algorithm.
+	Sorts the array A using QuickSort sorting algorithm.
 
 	@param int A[] 			array to be sorted
 	@param int n			size of the array to be sorted

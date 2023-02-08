@@ -46,6 +46,52 @@ void resetCounter(double dCounter[], int n) {
 	}
 } 
 
+void printSort(int nSort) {
+	switch(nSort) {
+		case 0:
+			printf("Bubble Sort:\n");
+			break;
+		case 1:
+		    printf("Insertion Sort:\n");
+            break;
+		case 2:
+		    printf("Selection Sort:\n");
+            break;
+        case 3:
+		    printf("Merge Sort:\n");
+            break;
+        case 4:
+		    printf("Sort 5:\n");
+            break;
+        case 5:
+		    printf("Sort 6:\n");
+            break;
+	}
+}
+
+void chooseSort(int A, int N, double *dCounter, int nSort) {
+	switch(nSort) {
+		case 0: 
+			bubbleSort(A, N, dCounter); 
+			break;
+        case 1: 
+			insertionSort(A, N, dCounter);
+			break;
+        case 2:
+			selectionSort(A, N, dCounter);
+			break;
+		case 3:
+			mergeSort(A, N, dCounter);
+			break;
+		case 4:
+			sort5(A, N, dCounter);
+			break;
+		case 5:
+			sort6(A, N, dCounter);
+			break;
+	}
+}
+
 int main() {
 	
 	//	your code here
@@ -66,52 +112,23 @@ int main() {
 	double dMET;
 
 	generateData(aOriginal, N);
-	//printArray(A, N);
 	printf("-- N: %d --\n\n", N);
 	for (nSort = 0; nSort < 6; nSort++) {
 		resetCounter(dCounter, nMaxRun);
-		switch(nSort) {
-			case 0:
-				printf("Bubble Sort:\n");
-				break;
-			case 1:
-			    printf("Insertion Sort:\n");
-                break;
-			case 2:
-			    printf("Selection Sort:\n");
-                break;
-            case 3:
-			    printf("Merge Sort:\n");
-                break;
-            case 4:
-			    printf("Sort 5:\n");
-                break;
-            case 5:
-			    printf("Sort 6:\n");
-                break;
-		}
-		for (M=0; M < nMaxRun; M++) {
+		printSort(nSort);
+		for (M = 0; M < nMaxRun; M++) {
 			resetArray(aOriginal, A, N);
 			timeStart = getTime();
-			switch(nSort) {
-				case 0: bubbleSort(A, N, &dCounter[M]); break;
-                case 1: insertionSort(A, N, &dCounter[M]); break;
-                case 2: selectionSort(A, N, &dCounter[M]); break;
-				case 3: mergeSort(A, N, &dCounter[M]); break;
-				case 4: sort5(A, N, &dCounter[M]); break;
-				case 5: sort6(A, N, &dCounter[M]); break;
-			}
+			chooseSort(A, N, &dCounter[M], nSort);
 			timeEnd = getTime();
 			dElapsed[M] = getElapsed(timeStart, timeEnd);
-
 
 			/* Remove Comment to see Elapsed Time and Counter per Run
 			printf("Time Elapsed: %lf\n", dElapsed[M]);
 			printf("Counter: %.lf\n\n", dCounter[M]);
 			*/
 		}
-		dMET = computeAverage(dElapsed, nMaxRun);
-		dMET = dMET * 1000;								// Converts it to milliseconds
+		dMET = computeAverage(dElapsed, nMaxRun) * 1000; // Computes average and converts it to milliseconds					
 		printf("Average MET: %lf milliseconds\n", dMET);
 		dAverageCounter = computeAverage(dCounter, nMaxRun);
 		printf("Average counter value: %.lf\n", dAverageCounter);

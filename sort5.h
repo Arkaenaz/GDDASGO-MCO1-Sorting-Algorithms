@@ -16,7 +16,7 @@ Link:https://www.programiz.com/dsa/heap-sort
 	@param int *nValue1     value #1
 	@param int *nValue2     value #2
 */
-void swap(int *nNum1, int *nNum2){
+void swapHeap(int *nNum1, int *nNum2){
     int temp = *nNum1;
     *nNum1 = *nNum2;
     *nNum2 = temp;
@@ -30,7 +30,7 @@ void swap(int *nNum1, int *nNum2){
 	@param int i            array index
 	@param double *dCounter	counter variable for critical parts of the code
 */
-void heapify(int arr[], int n, int i){
+void heapify(int arr[], int n, int i, double *dCounter){
     int small, left, right;
     do{
         small = i;
@@ -38,9 +38,11 @@ void heapify(int arr[], int n, int i){
         right = 2 * i + 2;
 
         if(left < n && arr[left] < arr[small]) small = left;
+        *dCounter += 1;
         if(right < n && arr[right] < arr[small]) small = right;
+        *dCounter += 1;
 
-        if(small != i) swap(&arr[i], &arr[small]);
+        if(small != i) swapHeap(&arr[i], &arr[small]);
         
     }while(small != i);
 }
@@ -61,6 +63,7 @@ YOU ARE NOT ALLOWED TO MODIFY THE FUNCTION PROTOTYPES
 void sort5(int A[], int n, double *dCounter){
 
     for(int i = n/2 - 1; i >= 0; i--){
-        heapify(A, n, i);
+        *dCounter += 1;
+        heapify(A, n, i, dCounter);
     }
 }

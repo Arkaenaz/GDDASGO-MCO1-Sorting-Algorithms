@@ -16,12 +16,12 @@ Link: https://www.programiz.com/dsa/selection-sort
 	@param int *nValue1     value #1
 	@param int *nValue2     value #2
 */
-void swap(int *nValue1, int *nValue2)
+void swapSelection(int *nValue1, int *nValue2)
 {
     int temp;
-    temp = nValue1;
-    nValue1 = nValue2;
-    nValue2 = temp;
+    temp = *nValue1;
+    *nValue1 = *nValue2;
+    *nValue2 = temp;
 }
 
 /****************************************************
@@ -39,14 +39,16 @@ void selectionSort(int A[], int n, double *dCounter)
 {
     for (int i = 0; i < n; i++)
     {
+        *dCounter += 1;
         int nMinimum = i;
 
         for (int j = i + 1; j < n; j++)
         {
+            *dCounter += 1;
             if (A[j] < A[nMinimum])
                 nMinimum = j;
         }
 
-        swap(&A[i], &A[nMinimum]);
+        swapSelection(&A[i], &A[nMinimum]);
     }
 }

@@ -69,7 +69,7 @@ void printSort(int nSort) {
 	}
 }
 
-void chooseSort(int A, int N, double *dCounter, int nSort) {
+void chooseSort(int A[], int N, double *dCounter, int nSort) {
 	switch(nSort) {
 		case 0: 
 			bubbleSort(A, N, dCounter); 
@@ -123,10 +123,8 @@ int main() {
 			timeEnd = getTime();
 			dElapsed[M] = getElapsed(timeStart, timeEnd);
 
-			/* Remove Comment to see Elapsed Time and Counter per Run
 			printf("Time Elapsed: %lf\n", dElapsed[M]);
 			printf("Counter: %.lf\n\n", dCounter[M]);
-			*/
 		}
 		dMET = computeAverage(dElapsed, nMaxRun) * 1000; // Computes average and converts it to milliseconds					
 		printf("Average MET: %lf milliseconds\n", dMET);

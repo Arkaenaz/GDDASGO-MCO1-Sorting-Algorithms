@@ -37,10 +37,15 @@ void heapify(int arr[], int n, int i, double *dCounter){
         left  = 2 * i + 1;
         right = 2 * i + 2;
 
-        if(left < n && arr[left] < arr[small]) small = left;
-        *dCounter += 1;
-        if(right < n && arr[right] < arr[small]) small = right;
-        *dCounter += 1;
+        if(left < n && arr[left] < arr[small]){
+            small = left;
+            *dCounter += 1;
+        }
+        if(right < n && arr[right] < arr[small]){
+            small = right;
+            *dCounter += 1;
+        }
+        
 
         if(small != i) swapHeap(&arr[i], &arr[small]);
         

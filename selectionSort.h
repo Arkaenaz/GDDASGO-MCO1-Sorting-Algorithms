@@ -44,9 +44,12 @@ void selectionSort(int A[], int n, double *dCounter)
 
         for (int j = i + 1; j < n; j++)
         {
-            *dCounter += 1;
-            if (A[j] < A[nMinimum])
+            
+            if (A[j] < A[nMinimum]){
+                *dCounter += 1;
                 nMinimum = j;
+            }
+                
         }
 
         swapSelection(&A[i], &A[nMinimum]);

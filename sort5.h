@@ -47,7 +47,12 @@ void heapify(int arr[], int n, int i, double *dCounter){
         }
         
 
-        if(small != i) swapHeap(&arr[i], &arr[small]);
+        if(small != i){
+            swapHeap(&arr[i], &arr[small]);
+            *dCounter += 1;
+            }
+        
+        
         
     }while(small != i);
 }

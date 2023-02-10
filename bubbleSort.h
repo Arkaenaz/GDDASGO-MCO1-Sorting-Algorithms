@@ -34,11 +34,10 @@ void bubbleSort(int A[], int n, double *dCounter) {
     int i, j;
 
 	for(i = 0; i < n; i++) {
-		*dCounter += 1;
 		for(j = (n-1); j >= i+1; j--) {
-			*dCounter += 1;
         	if(A[j] < A[j-1]) {
             	swapBubble(&A[j], &A[j-1]);
+				*dCounter += 1;
 			}
       	}
    }

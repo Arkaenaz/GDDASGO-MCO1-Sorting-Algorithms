@@ -1,7 +1,7 @@
 /****************************************************
-Group: 		
-Section:	
-Members:	
+Group: Group 4
+Section: S11
+Members: Joachim Arguelles, Shane Cablayan, James Ursua
 ****************************************************/
 
 #include <stdio.h>

@@ -95,7 +95,7 @@ void chooseSort(int A[], int N, double *dCounter, int nSort) {
 int main() {
 	
 	//	your code here
-	int N = 65536;			// Change this to change the number of values in the array
+	int N = 1024;			// Change this to change the number of values in the array
 	int nMaxRun = 10;		// Change this to change the number of runs
 
 	int M;
@@ -123,8 +123,10 @@ int main() {
 			timeEnd = getTime();
 			dElapsed[M] = getElapsed(timeStart, timeEnd);
 
+			/* Uncomment to print measured time and counter per test run
 			printf("Time Elapsed: %lf\n", dElapsed[M]);
 			printf("Counter: %.lf\n\n", dCounter[M]);
+			*/
 		}
 		dMET = computeAverage(dElapsed, nMaxRun) * 1000; // Computes average and converts it to milliseconds					
 		printf("Average MET: %lf milliseconds\n", dMET);
